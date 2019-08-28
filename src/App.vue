@@ -1,48 +1,89 @@
 <template>
-  <div id="app">
-    <el-container>
-      <el-header class="header">
-        <router-link to="/" tag="el-link">Hello World</router-link>
-        <router-link to="/carousel" tag="el-link">幻灯片</router-link>
-        <router-link to="/collapse" tag="el-link">折叠面板</router-link>
-        <router-link to="/table" tag="el-link">表格</router-link>
-        <router-link to="/form" tag="el-link">表单</router-link>
-        <router-link to="/dialog" tag="el-link">对话框</router-link>
-      </el-header>
-      <el-main>
-        <router-view></router-view>
-      </el-main>
-    </el-container>
-  </div>
+  <el-container>
+    <el-header height="50px">
+      <div class="wrapper">
+        <el-row>
+          <el-col :span="14">
+            <div class="menu">
+              <a href="#"><img src="./assets/image/logo.png" alt="户外活动平台"></a>
+              <a href="#">资讯</a>
+              <a href="#">活动</a>
+              <a href="#">保险</a>
+            </div>
+          </el-col>
+          <el-col :span="10">
+            <div class="link">
+              <a href="#">登录</a>
+              <el-divider direction="vertical"></el-divider>
+              <a href="#">俱乐部入驻</a>
+              <el-divider direction="vertical"></el-divider>
+              <a href="#">车队入驻</a>
+              <el-divider direction="vertical"></el-divider>
+              <a href="#">农家 / 客栈入驻</a>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </el-header>
+    <el-main>
+      <router-view></router-view>
+    </el-main>
+    <el-footer height="40px">
+      <div class="wrapper">© 底部信息</div>
+    </el-footer>
+</el-container>
 </template>
+
 
 <script>
 export default {
   name: 'app',
+  data() {
+    return {
+    };
+  },
   components: {
+  },
+  methods: {
   }
 }
 </script>
 
 <style lang="less">
-*{
-  margin: 0;
-  padding: 0;
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  .header{
-    padding-top: 20px;
-    .el-link{
-      margin: 0 5px;
+  .el-header{
+    line-height: 50px;
+    background: #444444;
+    .menu{
+      display: flex;
+      img{
+        vertical-align: top;
+      }
+      a:first-child{
+        margin-right: 15px;
+      }
+      a:not(:first-child){
+        margin-right: 30px;
+      }
     }
-    .router-link-exact-active{
-      color: #409EFF;
+    .link{
+      text-align: right;
+      font-size: 12px;
+    }
+    a{
+      color: #fff;
+      &:hover{
+        color: #4ebaff;
+      }
     }
   }
-}
+  .el-main{
+    padding: 0 0 30px 0;
+    background: #f4f4f4;
+  }
+  .el-footer{
+    background: #fff;
+    line-height: 40px;
+    color: #666;
+    font-size: 12px;
+  }
 </style>
